@@ -1,0 +1,32 @@
+<html ng-app="plunker">
+	<head>
+		<title>Accueil</title>
+		<!--Scripts-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+		<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+		<script src="js/Ctrls.js"></script>
+		<!--Style sheets-->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<div id="head">
+			<div ng-controller="ConnectionCtrl">
+				<div collapse="isCollapsed">
+					<div id="Connection" >Connection forms</div> 
+				</div>
+			<a href="#" ng-click="isCollapsed = !isCollapsed" >Connexion</a>
+			</div>
+		</div>
+		<div id="carnet">
+			<!-- Ici se trouveront les entrées du carnet d'adresse!-->
+		</div>
+		<div id="detail">
+			<!-- Ici se trouveront les details du contact sélectionné  --->
+			<!-- si aucun contact n'est sélectionné ce panneau ne sera --->
+			<!-- pas affiché 					   !-->
+		</div>
+		<div id="foot">
+			Nicolas BROQUET & Thomas BEJUIT
+		</div>
+	</body>
+</html>

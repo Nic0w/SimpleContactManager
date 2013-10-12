@@ -1,0 +1,3 @@
+function ConnectionCtrl($scope) {
+  $scope.isCollapsed = false;
+}
