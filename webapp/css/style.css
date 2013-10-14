@@ -1,7 +1,56 @@
+angular.module('plunker', ['ui.bootstrap']);
 body{
 background-color:rgb(240,240,240);
 }
 #head{
 margin:auto;
 background-color:blue;
+text-align:right;
+padding-left: 30px;
+padding-right: 30px;
+padding-top: 5px;
+padding-bottom: 5px;
+}
+#head a{
+	color:white;
+	text-decoration: none;
+	font-weight: bold;
+}
+#corps
+{
+	min-height:1px;
+}
+#carnet{
+	float: left;
+	min-width: 20%;
+}
+#detail{
+	float: left;
+	min-width:80%;
+}
+#foot{
+	margin:auto;
+	background-color:blue;
+	text-align:center;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.collapse {
+position: relative;
+height: 0;
+overflow: hidden;
+-webkit-transition: height 0.35s ease;
+-moz-transition: height 0.35s ease;
+-o-transition: height 0.35s ease;
+transition: height 0.35s ease;
+}
+.cEntry{
+	text-decoration:underline;
+	display:block;
+	
+}
+.selected{
+	background-color:blue;
 }
