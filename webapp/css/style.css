@@ -1,10 +1,10 @@
 angular.module('plunker', ['ui.bootstrap']);
 body{
-background-color:rgb(240,240,240);
+background-color:rgb(0,0,0);
 }
 #head{
 margin:auto;
-background-color:blue;
+background-color: white;
 text-align:right;
 padding-left: 30px;
 padding-right: 30px;
@@ -30,7 +30,7 @@ padding-bottom: 5px;
 }
 #foot{
 	margin:auto;
-	background-color:blue;
+	background-color: white;
 	text-align:center;
 	padding-left: 30px;
 	padding-right: 30px;
