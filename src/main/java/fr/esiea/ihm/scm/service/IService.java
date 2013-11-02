@@ -5,7 +5,6 @@ package fr.esiea.ihm.scm.service;
 
 import java.util.Collection;
 
-import fr.esiea.ihm.scm.model.Contact;
 import fr.esiea.ihm.scm.model.Model;
 
 /**
@@ -13,7 +12,7 @@ import fr.esiea.ihm.scm.model.Model;
  *
  */
 
-public interface Service<M extends Model> {
+public interface IService<M extends Model> {
 
 	M getOne(Integer id);
 

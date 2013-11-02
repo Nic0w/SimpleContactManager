@@ -1,8 +1,8 @@
 package fr.esiea.ihm.scm.controllers;
 
-import java.util.Collection;
-
 import fr.esiea.ihm.scm.model.Model;
+
+import java.util.Collection;
 
 public interface CrudController<M extends Model> {
 

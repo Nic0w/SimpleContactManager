@@ -1,31 +1,26 @@
 package fr.esiea.ihm.scm.controllers;
 
-import java.util.Collection;
-
+import fr.esiea.ihm.scm.model.Contact;
+import fr.esiea.ihm.scm.service.IService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-import fr.esiea.ihm.scm.model.Contact;
-import fr.esiea.ihm.scm.service.ContactService;
-import fr.esiea.ihm.scm.service.Service;
+import java.util.Collection;
 
 @Controller
 @RequestMapping("/contact")
-@Qualifier("contactController")
 public class ContactController implements CrudController<Contact> {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ContactController.class);
 
-    private Service<Contact> contactService = new ContactService();
+    @Autowired
+    @Qualifier("contactService")
+    private IService<Contact> contactService;
 	
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
@@ -72,7 +67,7 @@ public class ContactController implements CrudController<Contact> {
 	}
 	
 	
-    public void setContactService(Service<Contact> service) {
+    public void setContactService(IService<Contact> service) {
     	
     	this.contactService = service;
     }
