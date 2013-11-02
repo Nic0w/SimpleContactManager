@@ -14,7 +14,7 @@ public class TestController {
 
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@ResponseStatus(HttpStatus.OK)
 	public void helloWorld() {
 
 		System.out.println("OK !!");
