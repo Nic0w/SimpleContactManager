@@ -1,27 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<<html ng-app="plunker">
+<!doctype html>
+<html ng-app="plunker">
 	<head>
 		<title>Accueil</title>
 		<!--Scripts-->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
 		<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
-		<script src="/js/Ctrls.js"></script>
+		<script src="js/Ctrls.js"></script>
 		<!--Style sheets-->
-		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
 		<header>
+			<div id="banner">
+				<h1>SCM</h1>
+			</div>
 			<div ng-controller="ConnectionCtrl">
+				<div  id="forms" >
 				<div collapse="isCollapsed">
-					<div id="Connection" >Connection forms</div> 
+					<form method="post" action="#signin">
+						<label for="login">Email</label>
+						<input type="email" name="email" placeholder="Email"/>
+						<label for="password">Password</label>
+						<input type="password" name="password" placeholder="Password"/>
+						<input type="submit" value="Sign in"/>
+					</form>
+					<a href="#signup">Sign up !</a>
 				</div>
-			<a href="#" ng-click="isCollapsed = !isCollapsed" >Connexion</a>
+			</div>
+			<span id="connection_button"ng-click="isCollapsed = !isCollapsed">Connexion</span>
 			</div>
 		</header>
 		<div id="corps">
 		<div id="carnet">
+			<h1>Contacts</h1><a href="#add">Add contact</a>
 			<!-- Ici se trouveront les entrées du carnet d'adresse!-->
 			<ul>
 				<li class="cEntry">Contact 1</li>
@@ -31,18 +42,6 @@
 			</ul>
 		</div>
 		<div id="detail">
-			<!-- Ici se trouveront les details du contact sélectionné  --->
-			<!-- si aucun contact n'est sélectionné ce panneau ne sera --->
-			<!-- pas affiché 					   !-->
-			Nom:<br/>
-			Pr&eacute;nom:<br/>
-			T&eacute;l&eacute;phone:<br/>
-			Email:<br/>
-			Adresse:<br/>
-			Facebook:<br/>
-			Twitter:<br/>
-			Google +:<br/>
-			Skype:<br/>
 		</div>
 		</div>
 		<footer>
