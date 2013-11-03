@@ -11,16 +11,16 @@ public class Contact extends Model {
 	
 	private String name, forname;
 	
-	private Map<PhoneType, String> phones;
+	private Map<PhoneType, String> phoneNumbers;
 	
 	private List<String> emails;
 	
-	public Map<PhoneType, String> getPhones() {
-		return phones;
+	public Map<PhoneType, String> getPhoneNumbers() {
+		return phoneNumbers;
 	}
 
-	public void setPhones(Map<PhoneType, String> phones) {
-		this.phones = phones;
+	public void setPhoneNumbers(Map<PhoneType, String> phones) {
+		this.phoneNumbers = phones;
 	}
 
 	public List<String> getEmails() {

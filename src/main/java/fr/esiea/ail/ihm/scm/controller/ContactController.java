@@ -49,6 +49,8 @@ public class ContactController implements CrudController<Contact> {
 	@Override
 	public void update(@RequestBody Contact contact) throws DAOException {
 		
+    	LOGGER.info("Update !");
+    	
     	this.contactService.update(contact);
 	}
 

@@ -27,25 +27,29 @@ public class ContactService implements IService<Contact> {
 
     @Override
     public void add(Contact model) throws DAOException {
-        
+        this.contactDAO.add(model);
     }
 
     @Override
     public void update(Contact model) throws DAOException {
-        
+        this.contactDAO.save(model);
     }
 
     @Override
     public Collection<Contact> getAll() throws DAOException {
-    	
-    	List<Contact> all = Arrays.asList(getOne(0), getOne(1),getOne(2));
-    	
-    	
-        return all;  
+  
+        return this.contactDAO.getAll();  
     }
 
     public void setContactDAO(DataAccessObject<Contact> dao) {
     	this.contactDAO = dao;
     }
+
+	@Override
+	public void remove(Integer id) throws DAOException {
+		
+		this.contactDAO.remove(id);
+		
+	}
     
 }

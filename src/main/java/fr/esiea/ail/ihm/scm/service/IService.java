@@ -20,6 +20,8 @@ public interface IService<M extends Model> {
 	void add(M model) throws DAOException;
 
 	void update(M model) throws DAOException;
+	
+	void remove(Integer id) throws DAOException;
 
 	Collection<M> getAll() throws DAOException;
 }
