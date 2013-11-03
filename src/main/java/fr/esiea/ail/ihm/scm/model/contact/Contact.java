@@ -25,6 +25,10 @@ public class Contact extends Model {
 	private String lastname;
 	
 	@JsonView(ContactView.Full.class)
+	@Pattern(regexp="19[0-9]{2}-[0-9]{2}-[0-9]{2}", message="Invalid date !")
+	private String birthdate;
+	
+	@JsonView(ContactView.Full.class)
 	private List<Address> addresses;
 	
 	@JsonView(ContactView.Full.class)
@@ -72,6 +76,14 @@ public class Contact extends Model {
 
 	public void setLastname(String forname) {
 		this.lastname = forname;
+	}
+
+	public String getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
 	}
 
 

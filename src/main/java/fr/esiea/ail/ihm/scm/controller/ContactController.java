@@ -3,6 +3,7 @@ package fr.esiea.ail.ihm.scm.controller;
 import fr.esiea.ail.ihm.scm.controller.handler.ApplicationException;
 import fr.esiea.ail.ihm.scm.dao.DAOException;
 import fr.esiea.ail.ihm.scm.model.contact.Contact;
+import fr.esiea.ail.ihm.scm.model.contact.ContactView;
 import fr.esiea.ail.ihm.scm.service.IService;
 import fr.esiea.ail.ihm.scm.service.ServiceException;
 
@@ -14,7 +15,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
 import java.util.Collection;
+
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/contact")
@@ -69,9 +77,14 @@ public class ContactController implements CrudController<Contact> {
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
 	@Override
-	public Collection<Contact> readAll() throws ApplicationException {
+	public void readAll(HttpServletResponse response) throws ApplicationException, IOException {
 		
-		return this.contactService.getAll();
+		ObjectMapper json = new ObjectMapper();
+		
+		json.writerWithView(ContactView.Minimal.class).
+			writeValue(response.getOutputStream(), this.contactService.getAll());
+		
+
 	}
 	
 	
@@ -79,4 +92,5 @@ public class ContactController implements CrudController<Contact> {
     	
     	this.contactService = service;
     }
+
 }
