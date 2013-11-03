@@ -32,21 +32,18 @@
 			</div>
 		</header>
 		<div id="corps">
-		<div id="carnet">
+		<div id="carnet" ng-controller="ContactListCtrl">
 			<h1>Contacts</h1><a href="#/new">Add contact</a>
 			<!-- Ici se trouveront les entrées du carnet d'adresse!-->
 			<ul>
-				<li class="cEntry">Contact 1</li>
-				<li class="cEntry selected">Contact 1</li>
-				<li class="cEntry">Contact 1</li>
-				<li class="cEntry">Contact 1</li>
+				<li class="cEntry" ngrepeat="t in contactList">{{t.lastname}} {{t.firstname}}</li>
 			</ul>
 		</div>
 		<div id="detail" ng-view>
 		</div>
 		</div>
 		<footer>
-			Nicolas BROQUET & Thomas BEJUIT
+			Nicolas BROQUET &amp; Thomas BEJUIT
 		</footer>
 	</body>
 </html>
