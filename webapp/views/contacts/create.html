@@ -16,11 +16,11 @@
 	<legend>Addresses</legend>
 	<fieldset>
 		<legend>Address 1</legend>
-		<label for="Address1_line1">Address</label><input type="text" name="Address1_line1" ng-model="contact.addr[0].line1"/><br/>
-		<label for="Address1_PostCode">Postcode</label><input type="text" name="Address1_PostCode" ng-model="contact.addr[0].postcode"/><br/>
-		<label for="Address1_City">City</label><input type="text" name="Address1_City" ng-model="contact.addr[0].city"/><br/>
-		<label for="Address1_State">State</label><input type="text" name="Address1_State" ng-model="contact.addr[0].state"/><br/>
-		<label for="Address1_country">Country</label><select name="Address1_country" ng-model="contact.addr[0].country" ng-options="t.name for t in countries">
+		<label for="Address1_line1">Address</label><input type="text" name="Address1_line1" ng-model="contact.addresses[0].line1"/><br/>
+		<label for="Address1_PostCode">Postcode</label><input type="text" name="Address1_PostCode" ng-model="contact.addresses[0].postcode"/><br/>
+		<label for="Address1_City">City</label><input type="text" name="Address1_City" ng-model="contact.addresses[0].city"/><br/>
+		<label for="Address1_State">State</label><input type="text" name="Address1_State" ng-model="contact.addresses[0].state"/><br/>
+		<label for="Address1_country">Country</label><select name="Address1_country" ng-model="contact.addresses[0].country" ng-options="t.name for t in countries">
 		</select><br/>
 
 	</fieldset>
@@ -32,7 +32,7 @@
 </fieldset>
 <fieldset>
 <legend>Phone numbers</legend>
-<label for="phone1">Phone 1</label><input type="tel" name="phone1" ng-model="contact.phones.MOBILE"/><br/>
+<label for="phone1">Phone 1</label><input type="tel" name="phone1" ng-model="contact.phoneNumbers.MOBILE"/><br/>
 </fieldset>
 <input type="submit" ng-click="saveContact()" value="Add !"/>
 </form>

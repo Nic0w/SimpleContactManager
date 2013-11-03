@@ -5,17 +5,17 @@ smcApp_Controllers.controller('SlideCtrl',['$scope',function($scope) {$scope.isC
 /*Controller of the create contact Page*/
 smcApp_Controllers.controller('NewContactCtrl',['$scope','$http',function($scope,$http){
   $scope.contact={};
-  $scope.contact.addr=new Array; // we create a new array in prevision to add multiple addresses
-  $scope.contact.addr[0]={};
+  $scope.contact.addresses=new Array;
+  $scope.contact.addresses[0]={};
   $scope.contact.emails=new Array; // idem but for emails
-  $scope.contact.phones={};
+  $scope.contact.phoneNumbers={};
   $http.get('js/datas/countries.json').success(function(data) {
     $scope.countries = data;
   });
   $scope.saveContact=function(){
   	console.log($scope.contact);
-  	$http.post('/contact',$scope.contact)
-  }
+  	$http.post('app/contact',$scope.contact);
+  };
 
 }]);
 //Controller for the contact list
