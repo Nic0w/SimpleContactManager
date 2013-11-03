@@ -1,10 +1,11 @@
 <!doctype html>
-<html ng-app="plunker">
+<html ng-app="SCMApp">
 	<head>
 		<title>Accueil</title>
 		<!--Scripts-->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script>
 		<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
 		<script src="js/Ctrls.js"></script>
 		<!--Style sheets-->
 		<link rel="stylesheet" href="css/style.css">
@@ -14,7 +15,7 @@
 			<div id="banner">
 				<h1>SCM</h1>
 			</div>
-			<div ng-controller="ConnectionCtrl">
+			<div ng-controller="SlideCtrl">
 				<div  id="forms" >
 				<div collapse="isCollapsed">
 					<form method="post" action="#signin">
@@ -32,7 +33,7 @@
 		</header>
 		<div id="corps">
 		<div id="carnet">
-			<h1>Contacts</h1><a href="#add">Add contact</a>
+			<h1>Contacts</h1><a href="#/new">Add contact</a>
 			<!-- Ici se trouveront les entrées du carnet d'adresse!-->
 			<ul>
 				<li class="cEntry">Contact 1</li>
@@ -41,7 +42,7 @@
 				<li class="cEntry">Contact 1</li>
 			</ul>
 		</div>
-		<div id="detail">
+		<div id="detail" ng-view>
 		</div>
 		</div>
 		<footer>

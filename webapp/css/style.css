@@ -1,4 +1,4 @@
-angular.module('plunker', ['ui.bootstrap']);
+angular.module('SCMApp', ['ui.bootstrap']);
 {}
 
 body{
@@ -18,9 +18,8 @@ header #connection_button{
 	cursor: pointer;
 	float: right;
 	color:white;
-	margin-right: 8px;
-	background-color:blue;
-	border-bottom-right-radius: 5px;
+	padding-right: 8px;
+	background-color:#445878;
 	border-bottom-left-radius: 5px;
 	text-decoration: none;
 	font-weight: bold;
@@ -30,13 +29,13 @@ header #connection_button{
 }
 header #forms{
 	text-align: inherit;
-	background-color: blue;
+	background-color: #445878;
 	padding-right: 20px;
 	padding-bottom: 8px;
 }
 header #banner{
 	height: 50px;
-	background-color: blue;
+	background-color: #445878;
 }
 header #banner h1{
 	margin: 0px;
@@ -76,7 +75,7 @@ transition: height 0.35s ease;
 background-color:rgb(240,240,240);
 }
 .cEntry.selected{
-	background-color:blue;
+	background-color:#92CDCF;
 }
 .cEntry:hover.selected{
 }
@@ -86,7 +85,7 @@ background-color:rgb(240,240,240);
 	display: hidden;
 }
 footer{
-	background-color: rgb(40,40,40);
+	background-color: #1C1D21;
 	color: white;
 	text-align:center;
 	padding-left: 30px;
