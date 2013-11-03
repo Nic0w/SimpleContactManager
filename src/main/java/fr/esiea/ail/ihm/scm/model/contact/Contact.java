@@ -7,14 +7,16 @@ import fr.esiea.ail.ihm.scm.model.Model;
 
 public class Contact extends Model {
 
-//nom, prenom, address, téléphone, mail, date de naissance, photo, 	
-	
+	//nom, prenom, address, téléphone, mail, date de naissance, photo, 	
+
 	private String name, forname;
-	
-	private Map<PhoneType, String> phoneNumbers;
-	
+	private List<String> addresses;
 	private List<String> emails;
-	
+
+	private Map<PhoneType, String> phoneNumbers;
+
+
+
 	public Map<PhoneType, String> getPhoneNumbers() {
 		return phoneNumbers;
 	}
@@ -39,9 +41,6 @@ public class Contact extends Model {
 		this.addresses = addresses;
 	}
 
-	private List<String> addresses;
-	
-
 	public String getName() {
 		return name;
 	}
@@ -57,6 +56,6 @@ public class Contact extends Model {
 	public void setForname(String forname) {
 		this.forname = forname;
 	}
-	
-	
+
+
 }
