@@ -20,8 +20,8 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>2.3</version>
         <configuration>
-          <warSourceDirectory>src/main/webapp</warSourceDirectory>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
+          <warSourceDirectory>/webapp</warSourceDirectory>
+          <failOnMissingWebXml>yes</failOnMissingWebXml>
         </configuration>
       </plugin>
     </plugins>

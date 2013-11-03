@@ -5,6 +5,7 @@ package fr.esiea.ail.ihm.scm.service;
 
 import java.util.Collection;
 
+import fr.esiea.ail.ihm.scm.dao.DAOException;
 import fr.esiea.ail.ihm.scm.model.Model;
 
 /**
@@ -14,11 +15,11 @@ import fr.esiea.ail.ihm.scm.model.Model;
 
 public interface IService<M extends Model> {
 
-	M getOne(Integer id);
+	M getOne(Integer id) throws DAOException;
 
-	void add(M model);
+	void add(M model) throws DAOException;
 
-	void update(M model);
+	void update(M model) throws DAOException;
 
-	Collection<M> getAll();
+	Collection<M> getAll() throws DAOException;
 }

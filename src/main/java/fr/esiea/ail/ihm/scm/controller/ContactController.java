@@ -1,6 +1,7 @@
 package fr.esiea.ail.ihm.scm.controller;
 
-import fr.esiea.ail.ihm.scm.model.Contact;
+import fr.esiea.ail.ihm.scm.dao.DAOException;
+import fr.esiea.ail.ihm.scm.model.contact.Contact;
 import fr.esiea.ail.ihm.scm.service.IService;
 
 import org.slf4j.Logger;
@@ -26,7 +27,7 @@ public class ContactController implements CrudController<Contact> {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     @Override
-    public Contact readByID(@PathVariable("id") Integer contactId) {
+    public Contact readByID(@PathVariable("id") Integer contactId) throws DAOException {
 
             LOGGER.info("Querying contact {}.", contactId);
             
@@ -38,7 +39,7 @@ public class ContactController implements CrudController<Contact> {
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json;charset=UTF-8")
     @ResponseStatus(HttpStatus.CREATED)
 	@Override
-	public void create(@RequestBody Contact contact) {
+	public void create(@RequestBody Contact contact) throws DAOException {
 		
 		this.contactService.add(contact);
 	}
@@ -46,7 +47,7 @@ public class ContactController implements CrudController<Contact> {
     @RequestMapping(value = "", method = RequestMethod.PUT, consumes = "application/json")
     @ResponseStatus(HttpStatus.OK)
 	@Override
-	public void update(@RequestBody Contact contact) {
+	public void update(@RequestBody Contact contact) throws DAOException {
 		
     	this.contactService.update(contact);
 	}
@@ -54,7 +55,7 @@ public class ContactController implements CrudController<Contact> {
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
 	@Override
-	public void remove(@PathVariable("id") Integer id) {
+	public void remove(@PathVariable("id") Integer id) throws DAOException {
 		
 		
 	}
@@ -62,7 +63,7 @@ public class ContactController implements CrudController<Contact> {
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
 	@Override
-	public Collection<Contact> readAll() {
+	public Collection<Contact> readAll() throws DAOException {
 		
 		return this.contactService.getAll();
 	}

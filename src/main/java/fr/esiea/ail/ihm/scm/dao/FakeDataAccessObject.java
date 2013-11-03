@@ -6,8 +6,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import fr.esiea.ail.ihm.scm.model.Contact;
 import fr.esiea.ail.ihm.scm.model.Model;
+import fr.esiea.ail.ihm.scm.model.contact.Contact;
 
 public abstract class FakeDataAccessObject<M extends Model> implements DataAccessObject<M> {
 
