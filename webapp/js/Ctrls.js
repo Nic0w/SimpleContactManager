@@ -4,16 +4,16 @@ smcApp_Controllers.controller('SlideCtrl',['$scope',function($scope) {$scope.isC
 
 smcApp_Controllers.controller('NewContactCtrl',['$scope','$http',function($scope,$http){
   $scope.contact={};
-  $scope.contact.addr=new Array;
-  $scope.contact.addr[0]={};
+  $scope.contact.addresses=new Array;
+  $scope.contact.addresses[0]={};
   $scope.contact.emails=new Array;
-  $scope.contact.phones={};
+  $scope.contact.phoneNumbers={};
   $http.get('js/datas/countries.json').success(function(data) {
     $scope.countries = data;
   });
   $scope.saveContact=function(){
   	console.log($scope.contact);
-  	$http.post('/contact',$scope.contact)
-  }
+  	$http.post('app/contact',$scope.contact);
+  };
 
 }]);

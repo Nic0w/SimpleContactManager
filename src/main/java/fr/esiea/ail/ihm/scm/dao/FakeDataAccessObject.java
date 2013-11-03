@@ -15,9 +15,13 @@ public abstract class FakeDataAccessObject<M extends Model> implements DataAcces
 	
 	private final Map<Integer, M> fakeDatabase;
 	
+	private int nextID;
+	
 	protected FakeDataAccessObject(Map<Integer, M> map) {
 		
 		this.fakeDatabase = map;
+		
+		nextID = 0;
 		
 	}
 	
@@ -71,6 +75,9 @@ public abstract class FakeDataAccessObject<M extends Model> implements DataAcces
 		
 		String className = m.getClass().getSimpleName();
 		
+		if(m.getID() == null) 
+			m.setID(this.getNextID());
+		
 		try {
 			
 			if(this.fakeDatabase.containsKey(m.getID()))
@@ -91,6 +98,10 @@ public abstract class FakeDataAccessObject<M extends Model> implements DataAcces
 			}
 		}
 
+	}
+
+	private Integer getNextID() {
+		return this.nextID++;
 	}
 
 	@Override

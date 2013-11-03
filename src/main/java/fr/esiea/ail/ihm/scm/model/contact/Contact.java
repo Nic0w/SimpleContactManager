@@ -9,8 +9,8 @@ public class Contact extends Model {
 
 	//nom, prenom, address, téléphone, mail, date de naissance, photo, 	
 
-	private String name, forname;
-	private List<String> addresses;
+	private String firstname, lastname;
+	private List<Address> addresses;
 	private List<String> emails;
 
 	private Map<PhoneType, String> phoneNumbers;
@@ -33,28 +33,28 @@ public class Contact extends Model {
 		this.emails = emails;
 	}
 
-	public List<String> getAddresses() {
+	public List<Address> getAddresses() {
 		return addresses;
 	}
 
-	public void setAddresses(List<String> addresses) {
+	public void setAddresses(List<Address> addresses) {
 		this.addresses = addresses;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstname(String name) {
+		this.firstname = name;
 	}
 
-	public String getForname() {
-		return forname;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setForname(String forname) {
-		this.forname = forname;
+	public void setLastname(String forname) {
+		this.lastname = forname;
 	}
 
 
