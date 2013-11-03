@@ -1,13 +1,17 @@
 package fr.esiea.ail.ihm.scm.dao;
 
-public class DAOException extends Exception {
+import org.springframework.http.HttpStatus;
+
+import fr.esiea.ail.ihm.scm.controller.handler.ApplicationException;
+
+public class DAOException extends ApplicationException {
 
 	public DAOException(Exception e) {
-		super(e);
+		super(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
 	}
 
-	public DAOException(String string) {
-		super(string);
+	public DAOException(String msg) {
+		super(HttpStatus.INTERNAL_SERVER_ERROR, msg);
 	}
 
 }
