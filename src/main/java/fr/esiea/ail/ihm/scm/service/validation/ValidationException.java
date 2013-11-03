@@ -1,5 +1,7 @@
 package fr.esiea.ail.ihm.scm.service.validation;
 
-public class ValidationException extends Exception {
+import fr.esiea.ail.ihm.scm.service.ServiceException;
+
+public class ValidationException extends ServiceException {
 
 }

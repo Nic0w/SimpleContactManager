@@ -3,16 +3,32 @@ package fr.esiea.ail.ihm.scm.model.contact;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
 import fr.esiea.ail.ihm.scm.model.Model;
 
 public class Contact extends Model {
 
 	//nom, prenom, address, téléphone, mail, date de naissance, photo, 	
 
-	private String firstname, lastname;
+	@JsonView(ContactView.Minimal.class)
+	@Pattern(regexp="[a-zA-Z-]+", message="Invalid characters in Firstname !")
+	@Size(max = 50, message = "Firstname is too long !")
+	private String firstname;
+	
+	@JsonView(ContactView.Minimal.class)
+	private String lastname;
+	
+	@JsonView(ContactView.Full.class)
 	private List<Address> addresses;
+	
+	@JsonView(ContactView.Full.class)
 	private List<String> emails;
 
+	@JsonView(ContactView.Full.class)
 	private Map<PhoneType, String> phoneNumbers;
 
 

@@ -3,6 +3,7 @@ package fr.esiea.ail.ihm.scm.controller;
 import fr.esiea.ail.ihm.scm.dao.DAOException;
 import fr.esiea.ail.ihm.scm.model.contact.Contact;
 import fr.esiea.ail.ihm.scm.service.IService;
+import fr.esiea.ail.ihm.scm.service.ServiceException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,13 +22,13 @@ public class ContactController implements CrudController<Contact> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ContactController.class);
 
     @Autowired
-    @Qualifier("contactService")
+    @Qualifier("contactValidatorService")
     private IService<Contact> contactService;
 	
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     @Override
-    public Contact readByID(@PathVariable("id") Integer contactId) throws DAOException {
+    public Contact readByID(@PathVariable("id") Integer contactId) throws DAOException, ServiceException {
 
             LOGGER.info("Querying contact {}.", contactId);
             
@@ -39,7 +40,7 @@ public class ContactController implements CrudController<Contact> {
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json;charset=UTF-8")
     @ResponseStatus(HttpStatus.CREATED)
 	@Override
-	public void create(@RequestBody Contact contact) throws DAOException {
+	public void create(@RequestBody Contact contact) throws DAOException, ServiceException {
     	LOGGER.info("Add !");
     	
 		this.contactService.add(contact);
@@ -48,7 +49,7 @@ public class ContactController implements CrudController<Contact> {
     @RequestMapping(value = "", method = RequestMethod.PUT, consumes = "application/json")
     @ResponseStatus(HttpStatus.OK)
 	@Override
-	public void update(@RequestBody Contact contact) throws DAOException {
+	public void update(@RequestBody Contact contact) throws DAOException, ServiceException {
 		
     	LOGGER.info("Update !");
     	
@@ -58,7 +59,7 @@ public class ContactController implements CrudController<Contact> {
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
 	@Override
-	public void remove(@PathVariable("id") Integer id) throws DAOException {
+	public void remove(@PathVariable("id") Integer id) throws DAOException, ServiceException {
 		LOGGER.info("Remove !");
 		
 		this.contactService.remove(id);
@@ -67,7 +68,7 @@ public class ContactController implements CrudController<Contact> {
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
 	@Override
-	public Collection<Contact> readAll() throws DAOException {
+	public Collection<Contact> readAll() throws DAOException, ServiceException {
 		
 		return this.contactService.getAll();
 	}
