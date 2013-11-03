@@ -76,6 +76,9 @@ public abstract class FakeDataAccessObject<M extends Model> implements DataAcces
 			if(this.fakeDatabase.containsKey(m.getID()))
 				throw new DAOException("Database already contains "+ className +" "+ m.getID()+ " !");
 			
+			this.fakeDatabase.put(m.getID(), m);
+			
+			
 		} catch (Exception e) {
 			
 			if(e instanceof DAOException)

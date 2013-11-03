@@ -40,7 +40,8 @@ public class ContactController implements CrudController<Contact> {
     @ResponseStatus(HttpStatus.CREATED)
 	@Override
 	public void create(@RequestBody Contact contact) throws DAOException {
-		
+    	LOGGER.info("Add !");
+    	
 		this.contactService.add(contact);
 	}
 
@@ -49,6 +50,8 @@ public class ContactController implements CrudController<Contact> {
 	@Override
 	public void update(@RequestBody Contact contact) throws DAOException {
 		
+    	LOGGER.info("Update !");
+    	
     	this.contactService.update(contact);
 	}
 
@@ -56,8 +59,9 @@ public class ContactController implements CrudController<Contact> {
     @ResponseStatus(HttpStatus.OK)
 	@Override
 	public void remove(@PathVariable("id") Integer id) throws DAOException {
+		LOGGER.info("Remove !");
 		
-		
+		this.contactService.remove(id);
 	}
 
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
