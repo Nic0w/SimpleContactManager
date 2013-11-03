@@ -20,6 +20,8 @@ public class Contact extends Model {
 	private String firstname;
 	
 	@JsonView(ContactView.Minimal.class)
+	@Pattern(regexp="[a-zA-Z-]+", message="Invalid characters in Lastname !")
+	@Size(max = 50, message = "Lastname is too long !")
 	private String lastname;
 	
 	@JsonView(ContactView.Full.class)
@@ -31,8 +33,7 @@ public class Contact extends Model {
 	@JsonView(ContactView.Full.class)
 	private Map<PhoneType, String> phoneNumbers;
 
-
-
+	
 	public Map<PhoneType, String> getPhoneNumbers() {
 		return phoneNumbers;
 	}
