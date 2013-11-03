@@ -10,7 +10,7 @@ SCMApp.config(['$routeProvider',
         controller: 'NewContactCtrl'
       }).
       when('/contacts/:id', {templateUrl: 'views/contacts/show.html', controller: 'ContactViewCtrl'}).
-      when('/contacts/:id/edit', {templateUrl: 'views/contacts/create.html', controller: 'EditContactCtrl'}).
+      //when('/contacts/:id/edit', {templateUrl: 'views/contacts/create.html', controller: 'EditContactCtrl'}).
       otherwise({
         redirectTo: ''
       });

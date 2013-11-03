@@ -36,7 +36,7 @@
 			<h1>Contacts</h1><a href="#/new">Add contact</a>
 			<!-- Ici se trouveront les entrées du carnet d'adresse!-->
 			<ul>
-				<li class="cEntry" ngrepeat="t in contactList">{{t.lastname}} {{t.firstname}}</li>
+				<li class="cEntry" ng-repeat="t in contactList">{{t.lastname}} {{t.firstname}}</li>
 			</ul>
 		</div>
 		<div id="detail" ng-view>
