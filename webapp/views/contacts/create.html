@@ -1,0 +1,28 @@
+<form>
+<label for="firstname">First name</label>
+<input type="text" name="firstname"/>
+<label for="lastname">Last name</label>
+<input type="text" name="lastname"/>
+<fieldset>
+	<legend>Addresses</legend>
+	<fieldset>
+		<legend>Address 1</legend>
+		<input type="text" name="Address1_line1"/>
+		<input type="text" name="Address1_PostCode"/>
+		<input type="text" name="Address1_City"/>
+		<select name="Address1_country" ng-model="country" ng-options="t.name for t in countries">
+		</select>
+
+	</fieldset>
+</fieldset>
+
+</form>
+<!--
+Nom
+prenom
+numero de tel
+email
+adresses
+date de naissance
+photo
+ -->
