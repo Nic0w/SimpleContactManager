@@ -1,4 +1,4 @@
-package fr.esiea.ihm.scm.controllers;
+package fr.esiea.ail.ihm.scm.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,7 @@ public class TestController {
 
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@ResponseStatus(HttpStatus.OK)
 	public void helloWorld() {
 
 		System.out.println("OK !!");

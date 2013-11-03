@@ -8,4 +8,15 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--web.xml default environment dev-->
+    
+
+        <context:annotation-config/>
+        <context:component-scan base-package="fr.esiea.ail.ihm.scm.model"/>
+        <context:component-scan base-package="fr.esiea.ail.ihm.scm.service"/>
+        <context:component-scan base-package="fr.esiea.ail.ihm.scm.dao"/>
+
+
+        <!--<bean name="contactService" class="fr.esiea.ihm.scm.scm.service.ContactService"/>
+    -->
+
 </beans>
