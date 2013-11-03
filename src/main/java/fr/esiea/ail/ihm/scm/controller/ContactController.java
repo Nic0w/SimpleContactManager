@@ -1,7 +1,8 @@
-package fr.esiea.ihm.scm.controllers;
+package fr.esiea.ail.ihm.scm.controller;
 
-import fr.esiea.ihm.scm.model.Contact;
-import fr.esiea.ihm.scm.service.IService;
+import fr.esiea.ail.ihm.scm.model.Contact;
+import fr.esiea.ail.ihm.scm.service.IService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

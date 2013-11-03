@@ -1,11 +1,11 @@
 /**
  * 
  */
-package fr.esiea.ihm.scm.service;
+package fr.esiea.ail.ihm.scm.service;
 
 import java.util.Collection;
 
-import fr.esiea.ihm.scm.model.Model;
+import fr.esiea.ail.ihm.scm.model.Model;
 
 /**
  * @author nic0w

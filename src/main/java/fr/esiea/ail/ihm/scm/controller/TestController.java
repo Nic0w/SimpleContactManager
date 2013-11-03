@@ -1,4 +1,4 @@
-package fr.esiea.ihm.scm.controllers;
+package fr.esiea.ail.ihm.scm.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;

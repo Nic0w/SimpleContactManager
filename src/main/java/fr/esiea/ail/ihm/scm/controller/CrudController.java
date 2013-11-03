@@ -1,6 +1,6 @@
-package fr.esiea.ihm.scm.controllers;
+package fr.esiea.ail.ihm.scm.controller;
 
-import fr.esiea.ihm.scm.model.Model;
+import fr.esiea.ail.ihm.scm.model.Model;
 
 import java.util.Collection;
 

@@ -1,13 +1,19 @@
-package fr.esiea.ihm.scm.service;
+package fr.esiea.ail.ihm.scm.service;
 
-import fr.esiea.ihm.scm.model.Contact;
+import fr.esiea.ail.ihm.scm.dao.DataAccessObject;
+import fr.esiea.ail.ihm.scm.model.Contact;
+
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class ContactService implements IService<Contact> {
 
+	private DataAccessObject<Contact> contactDAO;
+	
 	@Override
 	public Contact getOne(Integer id) {
 		
@@ -24,17 +30,21 @@ public class ContactService implements IService<Contact> {
 
     @Override
     public void add(Contact model) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        
     }
 
     @Override
     public void update(Contact model) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        
     }
 
     @Override
     public Collection<Contact> getAll() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    	
+    	List<Contact> all = Arrays.asList(getOne(0), getOne(1),getOne(2));
+    	
+    	
+        return all;  
     }
 
 }

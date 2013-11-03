@@ -1,4 +1,4 @@
-package fr.esiea.ihm.scm.model;
+package fr.esiea.ail.ihm.scm.model;
 
 public class Contact extends Model {
 
