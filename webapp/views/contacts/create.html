@@ -1,21 +1,40 @@
+<h1>New contact :</h1>
+
 <form>
+<fieldset>
+	<legend>Information</legend>
 <label for="firstname">First name</label>
-<input type="text" name="firstname"/>
+<input type="text" name="firstname" ng-model="contact.firstname" /><br/>
 <label for="lastname">Last name</label>
-<input type="text" name="lastname"/>
+<input type="text" name="lastname" ng-model="contact.lastname"/><br/>
+<label for="birthdate">Birthdate</label>
+<input type="date" name="birthdate" ng-model="contact.birthdate"/><br/>
+<label for="photo">Photo</label>
+<input type="file" name="photo" ng-model="contact.photo"\>
+</fieldset>
 <fieldset>
 	<legend>Addresses</legend>
 	<fieldset>
 		<legend>Address 1</legend>
-		<input type="text" name="Address1_line1"/>
-		<input type="text" name="Address1_PostCode"/>
-		<input type="text" name="Address1_City"/>
-		<select name="Address1_country" ng-model="country" ng-options="t.name for t in countries">
-		</select>
+		<label for="Address1_line1">Address</label><input type="text" name="Address1_line1" ng-model="contact.addr[0].line1"/><br/>
+		<label for="Address1_PostCode">Postcode</label><input type="text" name="Address1_PostCode" ng-model="contact.addr[0].postcode"/><br/>
+		<label for="Address1_City">City</label><input type="text" name="Address1_City" ng-model="contact.addr[0].city"/><br/>
+		<label for="Address1_State">State</label><input type="text" name="Address1_State" ng-model="contact.addr[0].state"/><br/>
+		<label for="Address1_country">Country</label><select name="Address1_country" ng-model="contact.addr[0].country" ng-options="t.name for t in countries">
+		</select><br/>
 
 	</fieldset>
 </fieldset>
-
+<fieldset>
+<legend>Emails</legend>
+<label for="email1">Email 1:</label>
+<input type="email" name="email1" ng-model="contact.emails[0]"/><br/>
+</fieldset>
+<fieldset>
+<legend>Phone numbers</legend>
+<label for="phone1">Phone 1</label><input type="tel" name="phone1" ng-model="contact.phones.MOBILE"/><br/>
+</fieldset>
+<input type="submit" ng-click="saveContact()" value="Add !"/>
 </form>
 <!--
 Nom
