@@ -12,7 +12,7 @@
 
 
     <context:annotation-config/>
-    <context:component-scan base-package="fr.esiea.ail.ihm.scm.controllers"/>
+    <context:component-scan base-package="fr.esiea.ail.ihm.scm.controller"/>
     
 
     <mvc:annotation-driven>
