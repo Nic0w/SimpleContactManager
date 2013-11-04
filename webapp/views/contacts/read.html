@@ -1,0 +1,14 @@
+<h1> {{contact.firstname}} {{contact.lastname|uppercase}} </h1> <a href="#/contact/{{contact.id}}/edit">Edit</a>
+Birthdate: {{contact.birthdate}}<br/>
+Phones numbers:<br/>
+	Mobile: {{contact.phoneNumbers.MOBILE}}<br/>
+	Professional: {{contact.phoneNumbers.PROFESSIONAL}}<br/>
+	Home: {{contact.phoneNumbers.HOME}}<br/>
+Emails:
+<div class="email" ng-repeat="email in contact.emails">{{email}}</div>
+Addresses:
+<div class="address" ng-repeat="addr in contact.addresses">
+{{addr.line1}}<br/>
+{{addr.postcode}} {{addr.city |uppercase}} {{addr.state|uppercase}}<br/>
+{{addr.country.name|uppercase}}<br/>
+</div>

@@ -35,8 +35,31 @@ smcApp_Controllers.controller('ContactListCtrl',['$scope','$http',function($scop
 		});
 	});
 }]);
-smcApp_Controllers.controller('ContactShowCtrl',['$scope','$http',function($scope,$http){
-
-
+smcApp_Controllers.controller('ContactShowCtrl',['$scope','$http','$routeParams',function($scope,$http,$routeParams){
+	$scope.cId=$routeParams.id;
+	console.log("details du contact "+$scope.cId);
+	$scope.contact={};
+	$http.get('app/contact/'+$scope.cId).success(function(datas){
+		$scope.contact=datas;
+	});
 }]);
 
+smcApp_Controllers.controller('ContactEditCtrl',['$scope','$http','$rootScope','$routeParams',function($scope,$http,$rootScope,$routeParams){
+	$scope.contact={};
+	$scope.contact.addresses=new Array;
+	$scope.contact.addresses[0]={};
+	$scope.contact.emails=new Array; // idem but for emails
+	$scope.contact.phoneNumbers={};
+		$http.get('app/contact/'+$routeParams.id).success(function(data) {
+		$scope.contact = data;
+	});
+	$http.get('js/datas/countries.json').success(function(data) {
+		$scope.countries = data;
+	});
+	$scope.saveContact=function(){
+		console.log($scope.contact);
+		$http.put('app/contact',$scope.contact);
+		$rootScope.$broadcast('reloadContactList');//force the contact list to reload
+	};
+
+}]);
