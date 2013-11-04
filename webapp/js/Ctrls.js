@@ -44,3 +44,22 @@ smcApp_Controllers.controller('ContactShowCtrl',['$scope','$http','$routeParams'
 	});
 }]);
 
+smcApp_Controllers.controller('ContactEditCtrl',['$scope','$http','$rootScope','$routeParams',function($scope,$http,$rootScope,$routeParams){
+	$scope.contact={};
+	$scope.contact.addresses=new Array;
+	$scope.contact.addresses[0]={};
+	$scope.contact.emails=new Array; // idem but for emails
+	$scope.contact.phoneNumbers={};
+		$http.get('app/contact/'+$routeParams.id).success(function(data) {
+		$scope.contact = data;
+	});
+	$http.get('js/datas/countries.json').success(function(data) {
+		$scope.countries = data;
+	});
+	$scope.saveContact=function(){
+		console.log($scope.contact);
+		$http.put('app/contact',$scope.contact);
+		$rootScope.$broadcast('reloadContactList');//force the contact list to reload
+	};
+
+}]);

@@ -12,6 +12,10 @@ SCMApp.config(['$routeProvider',function($routeProvider) {
     templateUrl: 'views/contacts/read.html',
     controller: 'ContactShowCtrl'
   }).
+        when('/contact/:id/edit', {
+    templateUrl: 'views/contacts/create.html',
+    controller: 'ContactEditCtrl'
+  }).
 	otherwise({
 		redirectTo: ''
 	});
