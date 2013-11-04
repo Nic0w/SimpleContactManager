@@ -1,4 +1,4 @@
-<h1> {{contact.firstname}} {{contact.lastname|uppercase}} </h1> <a href="#/contact/{{contact.id}}/edit">Edit</a>
+<h1> {{contact.firstname}} {{contact.lastname|uppercase}} </h1> <a href="#/contact/{{contact.id}}/edit">Edit</a> <a href="#" ng-click="destroyContact()">Destroy</a><br/>
 Birthdate: {{contact.birthdate}}<br/>
 Phones numbers:<br/>
 	Mobile: {{contact.phoneNumbers.MOBILE}}<br/>

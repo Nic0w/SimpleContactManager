@@ -15,8 +15,11 @@ smcApp_Controllers.controller('NewContactCtrl',['$scope','$http','$rootScope','$
 	});
 	$scope.saveContact=function(){
 		console.log($scope.contact);
-		$http.post('app/contact',$scope.contact);
-		$rootScope.$broadcast('reloadContactList');//force the contact list to reload
+		$http.post('app/contact',$scope.contact).success(function(){
+			$rootScope.$broadcast('reloadContactList');//force the contact list to reload
+			console.log("Success !");
+		});
+		
 		$location.path("");
 	}; 
 
@@ -32,18 +35,30 @@ smcApp_Controllers.controller('ContactListCtrl',['$scope','$http',function($scop
 	error(function(){ console.log("Error")});
 //	this function is called when the controller receive an event reloadContactList
 	$scope.$on('reloadContactList', function () {
-		$http.get('app/contact').success(function(datas){
-			$scope.contactList=datas;
-		});
+		$scope.update();
+
 	});
+	$scope.update=function(){
+				$http.get('app/contact').success(function(datas){
+				$scope.contactList=datas;
+				console.log("Test" +$scope.contactList);
+		});
+	}
 }]);
-smcApp_Controllers.controller('ContactShowCtrl',['$scope','$http','$routeParams',function($scope,$http,$routeParams){
+smcApp_Controllers.controller('ContactShowCtrl',['$scope','$http','$routeParams','$location','$rootScope',function($scope,$http,$routeParams,$location,$rootScope){
 	$scope.cId=$routeParams.id;
 	console.log("details du contact "+$scope.cId);
 	$scope.contact={};
 	$http.get('app/contact/'+$scope.cId).success(function(datas){
 		$scope.contact=datas;
 	});
+	$scope.destroyContact=function(){
+		console.log("Destroy contact "+$scope.cId);
+		$http.delete("app/contact/"+$scope.cId).success(function(){
+			$rootScope.$broadcast('reloadContactList');
+		});
+		$location.path("");
+	}
 }]);
 
 smcApp_Controllers.controller('ContactEditCtrl',['$scope','$http','$rootScope','$routeParams','$location',function($scope,$http,$rootScope,$routeParams,$location){

@@ -3,12 +3,12 @@
 <form>
 <fieldset>
 	<legend>Information</legend>
-<label for="firstname">First name</label>
-<input type="text" name="firstname" ng-model="contact.firstname" /><br/>
+<label for="firstname" >First name</label>
+<input type="text" name="firstname" placeholder="Firstname" ng-model="contact.firstname" /><br/>
 <label for="lastname">Last name</label>
-<input type="text" name="lastname" ng-model="contact.lastname"/><br/>
+<input type="text" name="lastname" placeholder="Lastname" ng-model="contact.lastname"/><br/>
 <label for="birthdate">Birthdate</label>
-<input type="date" name="birthdate" ng-model="contact.birthdate"/><br/>
+<input type="date" name="birthdate" placeholder="yyyy-mm-dd" ng-model="contact.birthdate"/><br/>
 <label for="photo">Photo</label>
 <input type="file" name="photo" ng-model="contact.photo"\>
 </fieldset>
@@ -16,10 +16,10 @@
 	<legend>Addresses</legend>
 	<fieldset>
 		<legend>Address 1</legend>
-		<label for="Address1_line1">Address</label><input type="text" name="Address1_line1" ng-model="contact.addresses[0].line1"/><br/>
-		<label for="Address1_PostCode">Postcode</label><input type="text" name="Address1_PostCode" ng-model="contact.addresses[0].postcode"/><br/>
-		<label for="Address1_City">City</label><input type="text" name="Address1_City" ng-model="contact.addresses[0].city"/><br/>
-		<label for="Address1_State">State</label><input type="text" name="Address1_State" ng-model="contact.addresses[0].state"/><br/>
+		<label for="Address1_line1">Address</label><input type="text" name="Address1_line1" placeholder="Address" ng-model="contact.addresses[0].line1"/><br/>
+		<label for="Address1_PostCode">Postcode</label><input type="text" name="Address1_PostCode" placeholder="Postcode" ng-model="contact.addresses[0].postcode"/><br/>
+		<label for="Address1_City">City</label><input type="text" name="Address1_City" placeholder="City" ng-model="contact.addresses[0].city"/><br/>
+		<label for="Address1_State">State</label><input type="text" name="Address1_State" placeholder="State" ng-model="contact.addresses[0].state"/><br/>
 		<label for="Address1_country">Country</label><select name="Address1_country" ng-model="contact.addresses[0].country" ng-options="t.name for t in countries">
 		</select><br/>
 
@@ -27,12 +27,14 @@
 </fieldset>
 <fieldset>
 <legend>Emails</legend>
-<label for="email1">Email 1:</label>
-<input type="email" name="email1" ng-model="contact.emails[0]"/><br/>
+<label for="email">Email 1:</label>
+<input type="email" name="email" placeholder="Email" ng-model="contact.emails[0]"/><br/>
 </fieldset>
 <fieldset>
 <legend>Phone numbers</legend>
-<label for="phone1">Phone 1</label><input type="tel" name="phone1" ng-model="contact.phoneNumbers.MOBILE"/><br/>
+<label for="mobile">Mobile</label><input type="tel" name="mobile" placeholder="Phone number" ng-model="contact.phoneNumbers.MOBILE"/><br/>
+<label for="professional">Professional</label><input type="tel" name="professional" placeholder="Phone number" ng-model="contact.phoneNumbers.PROFESSIONAL"/><br/>
+<label for="home">Home</label><input type="tel" name="home" placeholder="Phone number" ng-model="contact.phoneNumbers.HOME"/><br/>
 </fieldset>
 <input type="submit" ng-click="saveContact()" value="{{submit}}"/>
 </form>

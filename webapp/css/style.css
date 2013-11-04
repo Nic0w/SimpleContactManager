@@ -14,6 +14,9 @@ header{
 header a{
 	color:white;
 }
+a div{
+	text-decoration: none;
+}
 header #connection_button{
 	cursor: pointer;
 	float: right;
@@ -53,17 +56,32 @@ transition: height 0.35s ease;
 }
 #corps
 {
+	min-height: 500px;
 	overflow: hidden;
-	min-height:1px;
 }
 #carnet{
+	background-color: #92CDCF;
 	float: left;
 	min-width: 20%;
-	max-width: 100%;
+	height: 500px;
+	overflow: hidden;
+	padding-left: 8px;
 }
 #carnet h1{
+	color: white;
 	display: inline-block;
 	margin-right: 10px;
+}
+#carnet img.add{
+	width: 16px;
+	height: 16px;
+	border-radius: 16px;
+}
+#carnet img.add:hover{
+display: inline-block;
+border-width: 1px;
+border-style: solid;
+border-color: #EEEFF7;
 }
 .cEntry{
 	text-decoration:underline;
@@ -80,9 +98,14 @@ background-color:rgb(240,240,240);
 .cEntry:hover.selected{
 }
 #detail{
-	float: left;
-	/*min-width:80%;*/
-	display: hidden;
+	margin:auto;
+	padding: 10px;
+	float:left;
+	width: 75%;
+}
+fieldset{
+	background-color: rgb(240,240,240);
+	border-color: yellow;
 }
 footer{
 	background-color: #1C1D21;
