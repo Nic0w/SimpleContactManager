@@ -1,5 +1,8 @@
 package fr.esiea.ail.ihm.scm.model.contact;
 
+import java.util.List;
+import java.util.Map;
+
 public class Address {
 
 	private Country country;
@@ -46,4 +49,20 @@ public class Address {
 		this.state = state;
 	}
 	
+	public static Address builder(String street, String postCode, String city, String state, String country) {
+		
+		Address newAddress = new Address();
+		
+		newAddress.setLine1(street);
+		newAddress.setCity(city);
+		newAddress.setPostcode(postCode);
+		newAddress.setState(state);
+		
+		Country newCountry = new Country();
+		newCountry.setName(country);
+		
+		newAddress.setCountry(newCountry);
+		
+		return newAddress;
+	}
 }
