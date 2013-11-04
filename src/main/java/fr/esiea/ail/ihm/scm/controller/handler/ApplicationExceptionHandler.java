@@ -10,6 +10,12 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import fr.esiea.ail.ihm.scm.controller.ContactController;
 
+/**
+ * Thank to Maxence for this "special" technique :)
+ * 
+ * @author nic0w
+ *
+ */
 @ControllerAdvice
 public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler {
 

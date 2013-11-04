@@ -2,42 +2,54 @@ package fr.esiea.ail.ihm.scm.service;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import fr.esiea.ail.ihm.scm.controller.handler.ApplicationException;
+import fr.esiea.ail.ihm.scm.dao.DataAccessObject;
+import fr.esiea.ail.ihm.scm.dao.FakeDataAccessObject;
 import fr.esiea.ail.ihm.scm.model.user.User;
 
 @Service
 public class UserService implements IService<User> {
-
+	
+	@Autowired
+	@Qualifier("userDAO")
+	private DataAccessObject<User> userDAO;
+	
 	@Override
 	public User getOne(Integer id) throws ApplicationException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.userDAO.get(id);
 	}
 
 	@Override
-	public void add(User model) throws ApplicationException {
-		// TODO Auto-generated method stub
+	public void add(User user) throws ApplicationException {
 		
+		this.userDAO.add(user);
 	}
 
 	@Override
 	public void update(User model) throws ApplicationException {
-		// TODO Auto-generated method stub
 		
+		this.userDAO.save(model);
 	}
 
 	@Override
 	public void remove(Integer id) throws ApplicationException {
-		// TODO Auto-generated method stub
 		
+		this.userDAO.remove(id);
 	}
 
 	@Override
 	public Collection<User> getAll() throws ApplicationException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.userDAO.getAll();
 	}
 
+	public void setUserDAO(DataAccessObject<User> dao) {
+		
+		this.userDAO = dao;
+	}
 }

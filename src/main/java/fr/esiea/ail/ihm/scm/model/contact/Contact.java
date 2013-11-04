@@ -12,7 +12,7 @@ import fr.esiea.ail.ihm.scm.model.Model;
 
 public class Contact extends Model {
 
-	//nom, prenom, address, téléphone, mail, date de naissance, photo, 	
+	//nom, prenom, address, tï¿½lï¿½phone, mail, date de naissance, photo, 	
 
 	@JsonView(ContactView.Minimal.class)
 	@Pattern(regexp="[a-zA-Z-]+", message="Invalid characters in Firstname !")
@@ -25,7 +25,7 @@ public class Contact extends Model {
 	private String lastname;
 	
 	@JsonView(ContactView.Full.class)
-	@Pattern(regexp="19[0-9]{2}-[0-9]{2}-[0-9]{2}", message="Invalid date !")
+	@Pattern(regexp="(19|20)[0-9]{2}-[0-9]{2}-[0-9]{2}", message="Invalid date !")
 	private String birthdate;
 	
 	@JsonView(ContactView.Full.class)
@@ -86,5 +86,20 @@ public class Contact extends Model {
 		this.birthdate = birthdate;
 	}
 
+	
+	public static Contact builder(String firstname, String lastname, List<String> email, List<Address> addresses, Map<PhoneType, String> phone) {
+		
+		Contact newContact = new Contact();
+		
+		newContact.setFirstname(firstname);
+		newContact.setLastname(lastname);
+		
+		newContact.setEmails(email);
+		newContact.setAddresses(addresses);
+		newContact.setPhoneNumbers(phone);
+		
+		return newContact;
+	}
+	
 
 }
