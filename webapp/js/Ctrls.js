@@ -3,7 +3,7 @@ var smcApp_Controllers = angular.module('SCMApp_Controllers', ['ui.bootstrap']);
 smcApp_Controllers.controller('SlideCtrl',['$scope',function($scope) {$scope.isCollapsed = true;}]);
 
 /*Controller of the create contact Page*/
-smcApp_Controllers.controller('NewContactCtrl',['$scope','$http','$rootScope',function($scope,$http,$rootScope){
+smcApp_Controllers.controller('NewContactCtrl',['$scope','$http','$rootScope','$location',function($scope,$http,$rootScope,$location){
 	$scope.contact={};
 	$scope.submit="Add";
 	$scope.contact.addresses=new Array;
@@ -17,7 +17,8 @@ smcApp_Controllers.controller('NewContactCtrl',['$scope','$http','$rootScope',fu
 		console.log($scope.contact);
 		$http.post('app/contact',$scope.contact);
 		$rootScope.$broadcast('reloadContactList');//force the contact list to reload
-	};
+		$location.path("");
+	}; 
 
 }]);
 //Controller for the contact list
@@ -45,7 +46,7 @@ smcApp_Controllers.controller('ContactShowCtrl',['$scope','$http','$routeParams'
 	});
 }]);
 
-smcApp_Controllers.controller('ContactEditCtrl',['$scope','$http','$rootScope','$routeParams',function($scope,$http,$rootScope,$routeParams){
+smcApp_Controllers.controller('ContactEditCtrl',['$scope','$http','$rootScope','$routeParams','$location',function($scope,$http,$rootScope,$routeParams,$location){
 	$scope.contact={};
 	$scope.submit="Update";
 	$scope.contact.addresses=new Array;
@@ -62,6 +63,7 @@ smcApp_Controllers.controller('ContactEditCtrl',['$scope','$http','$rootScope','
 		console.log($scope.contact);
 		$http.put('app/contact',$scope.contact);
 		$rootScope.$broadcast('reloadContactList');//force the contact list to reload
+		$location.path("/contact/"+$routeParams.id);
 	};
 
 }]);

@@ -5,7 +5,7 @@ var SCMApp = angular.module('SCMApp', ['SCMApp_Controllers']);
 SCMApp.config(['$routeProvider',function($routeProvider) {
 	$routeProvider.
   when('/new', {
-		templateUrl: 'views/contacts/create.html',
+		templateUrl: 'views/contacts/contact_forms.html',
 		controller: 'NewContactCtrl'
 	}).
     when('/contact/:id', {
@@ -13,7 +13,7 @@ SCMApp.config(['$routeProvider',function($routeProvider) {
     controller: 'ContactShowCtrl'
   }).
         when('/contact/:id/edit', {
-    templateUrl: 'views/contacts/create.html',
+    templateUrl: 'views/contacts/contact_forms.html',
     controller: 'ContactEditCtrl'
   }).
 	otherwise({

@@ -1,4 +1,4 @@
-<h1>New contact :</h1>
+<h1>{{submit}} contact :</h1>
 
 <form>
 <fieldset>
@@ -34,7 +34,7 @@
 <legend>Phone numbers</legend>
 <label for="phone1">Phone 1</label><input type="tel" name="phone1" ng-model="contact.phoneNumbers.MOBILE"/><br/>
 </fieldset>
-<input type="submit" ng-click="saveContact()" ng-model="submit"/>
+<input type="submit" ng-click="saveContact()" value="{{submit}}"/>
 </form>
 <!--
 Nom
