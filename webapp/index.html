@@ -12,28 +12,14 @@
 	</head>
 	<body>
 		<header>
+			<a href="#">
 			<div id="banner">
 				<h1>SCM</h1>
-			</div>
-			<div ng-controller="SlideCtrl">
-				<div  id="forms" >
-				<div collapse="isCollapsed">
-					<form method="post" action="#signin">
-						<label for="login">Email</label>
-						<input type="email" name="email" placeholder="Email"/>
-						<label for="password">Password</label>
-						<input type="password" name="password" placeholder="Password"/>
-						<input type="submit" value="Sign in"/>
-					</form>
-					<a href="#signup">Sign up !</a>
-				</div>
-			</div>
-			<span id="connection_button"ng-click="isCollapsed = !isCollapsed">Connexion</span>
-			</div>
+			</div></a>
 		</header>
 		<div id="corps">
 		<div id="carnet" ng-controller="ContactListCtrl">
-			<h1>Contacts</h1><a href="#/new">Add contact</a>
+			<h1>Contacts</h1><a href="#/new"><img class="add" src="images/plus-sign-128.png"/></a><br/>
 			<!-- Ici se trouveront les entrées du carnet d'adresse!-->
 			<ul>
 				<li class="cEntry" ng-repeat="t in contactList"><a href="#/contact/{{t.id}}">{{t.lastname|uppercase}} {{t.firstname}}</a></li>
