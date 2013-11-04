@@ -51,11 +51,16 @@ public abstract class FakeDataAccessObject<M extends Model> implements DataAcces
 		
 		String className = m.getClass().getSimpleName();
 
+		if(m.getID() == null)
+			throw new DAOException("ID is null !");
+		
 		try {
 			
 			if(!this.fakeDatabase.containsKey(m.getID())) {
 				
 				LOGGER.warn("{} {} is not present in Database !", className, m.getID());
+				
+				throw new DAOException("Element not present in database !");
 			}
 
 			old = this.fakeDatabase.put(m.getID(), m);
