@@ -2,9 +2,12 @@ package fr.esiea.ail.ihm.scm.service;
 
 import java.util.Collection;
 
+import org.springframework.stereotype.Service;
+
 import fr.esiea.ail.ihm.scm.controller.handler.ApplicationException;
 import fr.esiea.ail.ihm.scm.model.user.User;
 
+@Service
 public class UserService implements IService<User> {
 
 	@Override
