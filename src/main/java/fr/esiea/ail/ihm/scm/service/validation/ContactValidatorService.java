@@ -48,7 +48,7 @@ public class ContactValidatorService implements IService<Contact> {
 		Map<Object, String> badFields = this.validatorService.validate(contact);
 		
 		if(badFields.isEmpty())
-			this.contactService.add(contact);
+			this.contactService.update(contact);
 		else
 			throw new ValidationException(badFields);
 		
