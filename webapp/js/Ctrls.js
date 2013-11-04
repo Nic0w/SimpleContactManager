@@ -5,6 +5,7 @@ smcApp_Controllers.controller('SlideCtrl',['$scope',function($scope) {$scope.isC
 /*Controller of the create contact Page*/
 smcApp_Controllers.controller('NewContactCtrl',['$scope','$http','$rootScope',function($scope,$http,$rootScope){
 	$scope.contact={};
+	$scope.submit="Add";
 	$scope.contact.addresses=new Array;
 	$scope.contact.addresses[0]={};
 	$scope.contact.emails=new Array; // idem but for emails
@@ -46,6 +47,7 @@ smcApp_Controllers.controller('ContactShowCtrl',['$scope','$http','$routeParams'
 
 smcApp_Controllers.controller('ContactEditCtrl',['$scope','$http','$rootScope','$routeParams',function($scope,$http,$rootScope,$routeParams){
 	$scope.contact={};
+	$scope.submit="Update";
 	$scope.contact.addresses=new Array;
 	$scope.contact.addresses[0]={};
 	$scope.contact.emails=new Array; // idem but for emails
