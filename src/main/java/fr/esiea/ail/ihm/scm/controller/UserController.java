@@ -1,46 +1,44 @@
 package fr.esiea.ail.ihm.scm.controller;
 
-import java.io.IOException;
-import java.util.Collection;
-
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import fr.esiea.ail.ihm.scm.controller.handler.ApplicationException;
-import fr.esiea.ail.ihm.scm.dao.DAOException;
-import fr.esiea.ail.ihm.scm.model.Model;
+import fr.esiea.ail.ihm.scm.model.user.User;
+import fr.esiea.ail.ihm.scm.service.IService;
+import fr.esiea.ail.ihm.scm.service.ident.IdentificationService;
 
-public class UserController implements CrudController {
+@Controller
+@RequestMapping("/user")
+public class UserController {
 
-	@Override
-	public void create(Model model) throws DAOException {
-		// TODO Auto-generated method stub
+	@Autowired
+	@Qualifier("userService")
+	private IService<User> userService;
+	
+	@Autowired
+	@Qualifier("defaultIdentService")
+	private IdentificationService identService;
+
+	@RequestMapping(value = "/signin", method = RequestMethod.POST, consumes = "application/json;charset=UTF-8")
+    @ResponseStatus(HttpStatus.OK)
+	public void signIn() {
+		
+		
 		
 	}
-
-	@Override
-	public Model readByID(Integer id) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public void update(Model model) throws DAOException {
-		// TODO Auto-generated method stub
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.POST, consumes = "application/json;charset=UTF-8")
+    @ResponseStatus(HttpStatus.CREATED)
+	public void signUp(User newUser) throws ApplicationException {
 		
+		this.userService.add(newUser);
 	}
 
-	@Override
-	public void remove(Integer id) throws DAOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void readAll(HttpServletResponse response)
-			throws ApplicationException, IOException {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
