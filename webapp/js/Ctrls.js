@@ -35,8 +35,12 @@ smcApp_Controllers.controller('ContactListCtrl',['$scope','$http',function($scop
 		});
 	});
 }]);
-smcApp_Controllers.controller('ContactShowCtrl',['$scope','$http',function($scope,$http){
-
-
+smcApp_Controllers.controller('ContactShowCtrl',['$scope','$http','$routeParams',function($scope,$http,$routeParams){
+	$scope.cId=$routeParams.id;
+	console.log("details du contact "+$scope.cId);
+	$scope.contact={};
+	$http.get('app/contact/'+$scope.cId).success(function(datas){
+		$scope.contact=datas;
+	});
 }]);
 
