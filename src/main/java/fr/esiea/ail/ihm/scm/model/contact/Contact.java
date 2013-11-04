@@ -25,7 +25,7 @@ public class Contact extends Model {
 	private String lastname;
 	
 	@JsonView(ContactView.Full.class)
-	@Pattern(regexp="19[0-9]{2}-[0-9]{2}-[0-9]{2}", message="Invalid date !")
+	@Pattern(regexp="(19|20)[0-9]{2}-[0-9]{2}-[0-9]{2}", message="Invalid date !")
 	private String birthdate;
 	
 	@JsonView(ContactView.Full.class)
