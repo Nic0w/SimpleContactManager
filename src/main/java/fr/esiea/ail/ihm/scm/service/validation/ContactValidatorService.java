@@ -1,49 +1,68 @@
 package fr.esiea.ail.ihm.scm.service.validation;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
+import fr.esiea.ail.ihm.scm.controller.handler.ApplicationException;
 import fr.esiea.ail.ihm.scm.dao.DAOException;
 import fr.esiea.ail.ihm.scm.model.contact.Contact;
 import fr.esiea.ail.ihm.scm.service.IService;
+import fr.esiea.ail.ihm.scm.service.ServiceException;
 
+@Service
 public class ContactValidatorService implements IService<Contact> {
 
 	@Autowired
-	private IService<Contact> crudService;
+	@Qualifier("contactService")
+	private IService<Contact> contactService;
 
     @Autowired
-    private ValidatorService<Contact> validationService;
+    @Qualifier("defaultValidatorService")
+    private ValidatorService<Contact> validatorService;
 
 	@Override
-	public Contact getOne(Integer id) throws DAOException {
+	public Contact getOne(Integer id) throws ApplicationException {
 		
-		
-		return null;
+		return contactService.getOne(id);
 	}
 
 	@Override
-	public void add(Contact model) throws DAOException {
-		// TODO Auto-generated method stub
+	public void add(Contact contact) throws ApplicationException {
 		
-	}
-
-	@Override
-	public void update(Contact model) throws DAOException {
-		// TODO Auto-generated method stub
+		Map<Object, String> badFields = this.validatorService.validate(contact);
 		
-	}
-
-	@Override
-	public void remove(Integer id) throws DAOException {
-		// TODO Auto-generated method stub
+		if(badFields.isEmpty())
+			this.contactService.add(contact);
+		else
+			throw new ValidationException(badFields);
 		
 	}
 
 	@Override
-	public Collection<Contact> getAll() throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+	public void update(Contact contact) throws ApplicationException {
+		
+		Map<Object, String> badFields = this.validatorService.validate(contact);
+		
+		if(badFields.isEmpty())
+			this.contactService.add(contact);
+		else
+			throw new ValidationException(badFields);
+		
+	}
+
+	@Override
+	public void remove(Integer id) throws ApplicationException {
+	
+		this.contactService.remove(id);
+	}
+
+	@Override
+	public Collection<Contact> getAll() throws ApplicationException {
+		
+		return this.contactService.getAll();
 	}
 }
